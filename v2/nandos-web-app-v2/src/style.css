@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+@import 'nandos-core-ui-v2/dist/index.css';
+@source '../../nandos-core-ui-v2';
+
+:root {
+  background: #000000;
+}
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  /* Create app level stacking context */
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  color: white;
+}

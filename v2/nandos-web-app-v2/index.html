@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/barci.svg" />
+    <title>View the Nando’s menu & order online for delivery in your area.</title>
+    <meta
+      property="og:title"
+      content="View the Nando’s menu & order online for delivery in your area."
+    />
+    <meta
+      name="description"
+      content="We have more than just Flame-Grilled PERi-PERi up our sleeves! You have some big decisions on your hands..."
+    />
+    <meta
+      property="og:description"
+      content="We have more than just Flame-Grilled PERi-PERi up our sleeves! You have some big decisions on your hands..."
+    />
+
+    <!-- Static OG image, resolved relative to your domain -->
+    <meta property="og:image" content="/img/open-graph-meta-image.jpg" />
+    <meta property="og:image:secure_url" content="/img/open-graph-meta-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+
+    <!-- Static manifest in public/ -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta
+      name="viewport"
+      content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <!-- runtime injection of any env-dependent scripts -->
+    <script type="module">
+      // Google Optimize
+      const optId = import.meta.env.VITE_GOOGLE_OPTIMISE_ID
+      if (optId) {
+        const s = document.createElement('script')
+        s.src = `https://www.googleoptimize.com/optimize.js?id=${optId}`
+        document.head.appendChild(s)
+      }
+
+      // Google Maps with Advanced Markers
+      const mapsKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+      if (mapsKey) {
+          const s = document.createElement('script')
+          s.defer = true
+          s.async = true
+          s.src = `https://maps.googleapis.com/maps/api/js?key=${mapsKey}&libraries=marker`
+
+          // Add error handling
+          s.onerror = () => {
+              console.error('Failed to load Google Maps script')
+              window.googleMapsLoadFailed = true
+          }
+
+          // Add load handling
+          s.onload = () => {
+              console.log('Google Maps script loaded successfully')
+          }
+
+          document.head.appendChild(s)
+      }
+
+      // Google reCAPTCHA
+      const recKey = import.meta.env.VITE_GOOGLE_RECAPTCHA_KEY
+      if (recKey) {
+        const s = document.createElement('script')
+        s.defer = true
+        s.async = true // Add async to improve page load performance
+        s.src = `https://www.google.com/recaptcha/api.js?render=${recKey}`
+
+        // Add timeout handling for script loading
+        const timeoutId = setTimeout(() => {
+          console.warn('reCAPTCHA script load timeout')
+          // Set a flag to indicate that reCAPTCHA failed to load
+          window.recaptchaLoadFailed = true
+        }, 5000) // 5 second timeout
+
+        // Add error handling for script loading
+        s.onerror = () => {
+          console.error('Failed to load reCAPTCHA script')
+          clearTimeout(timeoutId)
+          // Set a flag to indicate that reCAPTCHA failed to load
+          window.recaptchaLoadFailed = true
+        }
+
+        // Add load handling to clear the timeout
+        s.onload = () => {
+          clearTimeout(timeoutId)
+        }
+
+        document.head.appendChild(s)
+      }
+
+      // Google Tag Manager
+      const gtmId = import.meta.env.VITE_GOOGLE_TAG_MANAGER_ID
+      if (gtmId) {
+        window.dataLayer = window.dataLayer || []
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        const s = document.createElement('script')
+        s.innerHTML = `
+          (function(w,d,s,l,i){
+            w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+            j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${gtmId}');
+        `
+        document.head.appendChild(s)
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+npm-debug.log/
+dist/
+dist/**
+prod/
+
+# cordova stuff
+/cordova/www/
+/cordova/platforms
+/cordova/plugins
+
+#intellij
+pwa.iml
+.idea

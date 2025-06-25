@@ -1,0 +1,1 @@
+if(import.meta.env.VITE_CONTEXT == 'ADMIN') throw new Error('WEB specific module imported in admin context');

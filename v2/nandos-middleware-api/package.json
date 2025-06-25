@@ -1,0 +1,33 @@
+{
+  "name": "nandos-middleware-api",
+  "version": "18.1.4",
+  "description": "Connect to Nandos middleware",
+  "author": "brad426@gmail.com",
+  "private": true,
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/push-notifications": "^4.0.1",
+    "axios": "^1.9.0",
+    "device-uuid": "^1.0.4",
+    "nandos-dev-logger": "^18.0.0",
+    "nandos-middleware-api": "^18.0.0",
+    "rrule": "2.7.2"
+  },
+  "peerDependencies": {
+    "pinia": "^2.3.1",
+    "vue": "^3.5.13"
+  },
+  "peerDependenciesMeta": {
+    "pinia": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/device-uuid": "^1.0.3",
+    "@types/node": "^22.15.17",
+    "typescript": "^5.8.3"
+  }
+}

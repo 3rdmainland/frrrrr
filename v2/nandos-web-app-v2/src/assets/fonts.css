@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Nandos Hand';
+  font-style: normal;
+  font-weight: 800;
+  src:
+    url('/fonts/nandos-hand/NandosHand.woff2'), url('/fonts/nandos-hand/NandosHand.woff'),
+    url('/fonts/nandos-hand/NandosHand.ttf');
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: local('Barlow Regular'), local('Barlow-Regular'), url('/fonts/barlow/Barlow-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Barlow';
+  src: local('Barlow Bold'), local('Barlow-Bold'), url('/fonts/barlow/Barlow-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}

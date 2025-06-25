@@ -1,0 +1,154 @@
+/*@import "./fonts.css";*/
+/*@theme{*/
+/*    --color-nandos-peri-red-100: oklch(0.73 0.16 21.86 / 1);*/
+/*    --color-nandos-peri-red-200: oklch(0.65 0.21 24.35 / 1);*/
+/*    --color-nandos-peri-red-300: oklch(0.59 0.23 23.57 / 1);*/
+/*    --color-nandos-peri-red-400: oklch(0.54 0.21 24.83 / 1);*/
+/*    --color-nandos-peri-red-500: oklch(0.43 0.17 24.48 / 1);*/
+/*    --color-nandos-peri-red-600: oklch(0.33 0.13 22.83 / 1);*/
+/*    --color-nandos-peri-red-700: oklch(0.26 0.06 19.56 / 1);*/
+/*    --color-nandos-peri-red-800: oklch(0.20 0.04 19.20 / 1);*/
+/*    --color-nandos-peri-red: var(--color-nandos-peri-red-500);*/
+/*    --color-nandos-black-100: oklch(0.74 0.02 277.76 / 1);*/
+/*    --color-nandos-black-200: oklch(0.67 0.02 268.99 / 1);*/
+/*    --color-nandos-black-300: oklch(0.59 0.02 273.68 / 1);*/
+/*    --color-nandos-black-400: oklch(0.51 0.01 271.12 / 1);*/
+/*    --color-nandos-black-500: oklch(0.42 0.01 273.14 / 1);*/
+/*    --color-nandos-black-600: oklch(0.33 0.01 268.39 / 1);*/
+/*    --color-nandos-black-700: oklch(0.24 0.01 285.96 / 1);*/
+/*    --color-nandos-black-800: oklch(0 0 0 / 1);*/
+/*    --color-nandos-black: var(--color-nandos-black-800);*/
+/*    --color-nandos-fresh-white-100: oklch(1 0 0 / 1);*/
+/*    --color-nandos-fresh-white-200: oklch(0.96 0 247.84 / 1);*/
+/*    --color-nandos-fresh-white-300: oklch(0.93 0.01 274.96 / 1);*/
+/*    --color-nandos-fresh-white-400: oklch(0.92 0.01 264.53 / 1);*/
+/*    --color-nandos-fresh-white-500: oklch(0.89 0 271.36 / 1);*/
+/*    --color-nandos-fresh-white-600: oklch(0.85 0.01 274.95 / 1);*/
+/*    --color-nandos-fresh-white-700: oklch(0.82 0 286.31 / 1);*/
+/*    --color-nandos-fresh-white-800: oklch(0.75 0 271.35 / 1);*/
+/*    --color-nandos-fresh-white: var(--color-nandos-fresh-white-100);*/
+/*    --color-nandos-warm-white-100: oklch(0.96 0.01 48.65 / 1);*/
+/*    --color-nandos-warm-white-200: oklch(0.92 0.01 41.20 / 1);*/
+/*    --color-nandos-warm-white-300: oklch(0.89 0.02 35.34 / 1);*/
+/*    --color-nandos-warm-white-400: oklch(0.85 0.02 40.78 / 1);*/
+/*    --color-nandos-warm-white-500: oklch(0.81 0.02 40.78 / 1);*/
+/*    --color-nandos-warm-white-600: oklch(0.77 0.02 36.52 / 1);*/
+/*    --color-nandos-warm-white-700: oklch(0.73 0.01 34.30 / 1);*/
+/*    --color-nandos-warm-white-800: oklch(0.65 0.01 29.90 / 1);*/
+/*    --color-nandos-warm-white: var(--color-nandos-warm-white-200);*/
+/*    --color-nandos-green-100: oklch(0.97 0.05 147.70 / 1);*/
+/*    --color-nandos-green-200: oklch(0.93 0.12 147.01 / 1);*/
+/*    --color-nandos-green-300: oklch(0.88 0.24 144.77 / 1);*/
+/*    --color-nandos-green-400: oklch(0.81 0.19 146.75 / 1);*/
+/*    --color-nandos-green-500: oklch(0.71 0.17 146.70 / 1);*/
+/*    --color-nandos-green-600: oklch(0.61 0.15 147.93 / 1);*/
+/*    --color-nandos-green-700: oklch(0.45 0.11 148.21 / 1);*/
+/*    --color-nandos-green-800: oklch(0.29 0.07 141.33 / 1);*/
+/*    --color-nandos-green: var(--color-nandos-green-400);*/
+/*    --color-nandos-turquoise-100: oklch(0.97 0.04 177.29 / 1);*/
+/*    --color-nandos-turquoise-200: oklch(0.94 0.09 175.30 / 1);*/
+/*    --color-nandos-turquoise-300: oklch(0.91 0.14 171.32 / 1);*/
+/*    --color-nandos-turquoise-400: oklch(0.89 0.18 168.57 / 1);*/
+/*    --color-nandos-turquoise-500: oklch(0.79 0.16 168.48 / 1);*/
+/*    --color-nandos-turquoise-600: oklch(0.63 0.12 172.47 / 1);*/
+/*    --color-nandos-turquoise-700: oklch(0.43 0.08 186.04 / 1);*/
+/*    --color-nandos-turquoise-800: oklch(0.29 0.05 186.47 / 1);*/
+/*    --color-nandos-turquoise: var(--color-nandos-turquoise-500);*/
+/*    --color-nandos-blue-100: oklch(0.93 0.04 252.08 / 1);*/
+/*    --color-nandos-blue-200: oklch(0.85 0.08 252.85 / 1);*/
+/*    --color-nandos-blue-300: oklch(0.75 0.13 261.80 / 1);*/
+/*    --color-nandos-blue-400: oklch(0.65 0.19 261.28 / 1);*/
+/*    --color-nandos-blue-500: oklch(0.57 0.17 261.09 / 1);*/
+/*    --color-nandos-blue-600: oklch(0.42 0.12 261.15 / 1);*/
+/*    --color-nandos-blue-700: oklch(0.26 0.09 266.13 / 1);*/
+/*    --color-nandos-blue-800: oklch(0.21 0.06 266.03 / 1);*/
+/*    --color-nandos-blue: var(--color-nandos-blue-400);*/
+/*    --color-nandos-purple-100: oklch(0.91 0.06 309.27 / 1);*/
+/*    --color-nandos-purple-200: oklch(0.83 0.11 308.11 / 1);*/
+/*    --color-nandos-purple-300: oklch(0.75 0.17 307.63 / 1);*/
+/*    --color-nandos-purple-400: oklch(0.67 0.22 305.96 / 1);*/
+/*    --color-nandos-purple-500: oklch(0.59 0.20 305.90 / 1);*/
+/*    --color-nandos-purple-600: oklch(0.44 0.14 306.25 / 1);*/
+/*    --color-nandos-purple-700: oklch(0.27 0.09 299.91 / 1);*/
+/*    --color-nandos-purple-800: oklch(0.22 0.06 300.93 / 1);*/
+/*    --color-nandos-purple: var(--color-nandos-purple-400);*/
+/*    --color-nandos-fuscia-100: oklch(0.92 0.07 326.13 / 1);*/
+/*    --color-nandos-fuscia-200: oklch(0.86 0.13 326.64 / 1);*/
+/*    --color-nandos-fuscia-300: oklch(0.78 0.22 327.41 / 1);*/
+/*    --color-nandos-fuscia-400: oklch(0.70 0.28 328.07 / 1);*/
+/*    --color-nandos-fuscia-500: oklch(0.63 0.25 328.06 / 1);*/
+/*    --color-nandos-fuscia-600: oklch(0.47 0.18 328.01 / 1);*/
+/*    --color-nandos-fuscia-700: oklch(0.28 0.10 327.88 / 1);*/
+/*    --color-nandos-fuscia-800: oklch(0.21 0.07 327.69 / 1);*/
+/*    --color-nandos-fuscia: var(--color-nandos-fuscia-400);*/
+/*    --color-nandos-pink-100: oklch(0.92 0.05 344.68 / 1);*/
+/*    --color-nandos-pink-200: oklch(0.85 0.10 345.78 / 1);*/
+/*    --color-nandos-pink-300: oklch(0.69 0.21 356.72 / 1);*/
+/*    --color-nandos-pink-400: oklch(0.65 0.22 358.93 / 1);*/
+/*    --color-nandos-pink-500: oklch(0.60 0.21 358.85 / 1);*/
+/*    --color-nandos-pink-600: oklch(0.44 0.15 357.85 / 1);*/
+/*    --color-nandos-pink-700: oklch(0.29 0.09 8.47 / 1);*/
+/*    --color-nandos-pink-800: oklch(0.23 0.06 6.50 / 1);*/
+/*    --color-nandos-pink: var(--color-nandos-pink-300);*/
+/*    --color-nandos-warm-red-100: oklch(0.91 0.04 19.70 / 1);*/
+/*    --color-nandos-warm-red-200: oklch(0.84 0.09 19.94 / 1);*/
+/*    --color-nandos-warm-red-300: oklch(0.71 0.18 25.76 / 1);*/
+/*    --color-nandos-warm-red-400: oklch(0.65 0.22 25.24 / 1);*/
+/*    --color-nandos-warm-red-500: oklch(0.59 0.20 25.07 / 1);*/
+/*    --color-nandos-warm-red-600: oklch(0.43 0.14 24.70 / 1);*/
+/*    --color-nandos-warm-red-700: oklch(0.27 0.08 28.82 / 1);*/
+/*    --color-nandos-warm-red-800: oklch(0.23 0.06 27.58 / 1);*/
+/*    --color-nandos-warm-red: var(--color-nandos-warm-red-400);*/
+/*    --color-nandos-orange-100: oklch(0.93 0.04 38.69 / 1);*/
+/*    --color-nandos-orange-200: oklch(0.86 0.08 37.19 / 1);*/
+/*    --color-nandos-orange-300: oklch(0.75 0.16 42.69 / 1);*/
+/*    --color-nandos-orange-400: oklch(0.70 0.20 40.40 / 1);*/
+/*    --color-nandos-orange-500: oklch(0.62 0.17 40.71 / 1);*/
+/*    --color-nandos-orange-600: oklch(0.45 0.12 41.42 / 1);*/
+/*    --color-nandos-orange-700: oklch(0.34 0.08 36.18 / 1);*/
+/*    --color-nandos-orange-800: oklch(0.24 0.05 37.47 / 1);*/
+/*    --color-nandos-orange: var(--color-nandos-orange-400);*/
+/*    --color-nandos-yellow-100: oklch(0.98 0.05 107.31 / 1);*/
+/*    --color-nandos-yellow-200: oklch(0.97 0.12 108.47 / 1);*/
+/*    --color-nandos-yellow-300: oklch(0.96 0.17 108.83 / 1);*/
+/*    --color-nandos-yellow-400: oklch(0.95 0.21 109.47 / 1);*/
+/*    --color-nandos-yellow-500: oklch(0.88 0.19 107.06 / 1);*/
+/*    --color-nandos-yellow-600: oklch(0.68 0.12 103.88 / 1);*/
+/*    --color-nandos-yellow-700: oklch(0.53 0.09 99.62 / 1);*/
+/*    --color-nandos-yellow-800: oklch(0.30 0.05 99.96 / 1);*/
+/*    --color-nandos-yellow: var(--color-nandos-yellow-400);*/
+/*    --font-nandos-hand: 'Nandos Hand', sans-serif;*/
+/*    --default-font-family: 'Barlow', serif;*/
+/*    --text-tiny: 0.625rem; !* 10px *!*/
+/*    --text-3xl: 2rem; !* 32px *!*/
+/*    --text-5xl: 3.5rem; !* 56px *!*/
+/*    --text-6xl: 4rem; !* 64px *!*/
+/*}*/
+
+/*:root {*/
+/*    !* Carousel Colors *!*/
+/*    --vc-clr-primary: var(--color-nandos-black) !important;*/
+/*    --vc-clr-secondary: var(--color-nandos-black-500) !important;*/
+/*    --vc-clr-white: white;*/
+/*    !* Carousel Navingation *!*/
+/*    --vc-nav-background: var(--vc-clr-primary) !important;*/
+/*    --vc-nav-border-radius: 0;*/
+/*    --vc-nav-color: white !important;*/
+/*    --vc-nav-color-hover: var(--color-nandos-yellow) !important;*/
+/*    --vc-nav-height: 32px !important;*/
+/*    --vc-nav-padding: 10px;*/
+/*    --vc-nav-margin: 0;*/
+/*    --vc-nav-width: 32px !important;*/
+/*    !* Carousel Pagination *!*/
+/*    --vc-pgn-active-color: var(--vc-clr-primary);*/
+/*    --vc-pgn-background-color: transparent !important;*/
+/*    --vc-pgn-border-color: var(--vc-clr-secondary);*/
+/*    --vc-pgn-border-radius: 100% !important;*/
+/*    --vc-pgn-height: 8px !important;*/
+/*    --vc-pgn-margin: 6px 5px;*/
+/*    --vc-pgn-width: 8px !important;*/
+/*}*/
+
+/*h1, h2, h3, h4 {*/
+/*    font-family: var(--font-nandos-hand);*/
+/*}*/
