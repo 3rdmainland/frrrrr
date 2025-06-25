@@ -1,0 +1,30 @@
+.DS_Store
+node_modules/
+npm-debug.log/
+npm-debug.log
+dist/
+prod/
+
+# local env files
+.env.local
+.env.*.local
+
+# cordova stuff
+/cordova/plugins/
+/cordova/platforms/
+/cordova/www/
+/cordova/.gradle/
+# keep empty www folder
+!/cordova/www/.gitkeep
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+pwa.iml
+/build/env/za/env.local.prprd

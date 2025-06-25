@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>View the Nando’s menu & order online for delivery in your area.</title>
+    <meta property="og:title" content="View the Nando’s menu & order online for delivery in your area.">
+    
+    <meta name="description" content="We have more than just Flame-Grilled PERi-PERi up our sleeves! You have some big decisions on your hands...">
+    <meta property="og:description" content="We have more than just Flame-Grilled PERi-PERi up our sleeves! You have some big decisions on your hands...">
+
+    <meta property="og:image" content="<%= VUE_APP_WEBSITE_URL %>/img/open-graph-meta-image.jpg">
+    <meta property="og:image:secure_url" content="<%= VUE_APP_WEBSITE_URL %>/img/open-graph-meta-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1200">
+    <link rel="manifest" href="<%= BASE_URL %>manifest.json">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Preload the nandos icon font -->
+    <link rel="preload" href="<%= require('nandos-core-ui/src/assets/font/nandos-icons/NandosIcons.woff') %>" as="font" crossorigin>
+    
+    <% if(process.env.VUE_APP_GOOGLE_OPTIMISE_ID != null) { %>
+    <!-- Google optimize -->
+    <script src="https://www.googleoptimize.com/optimize.js?id=<%= process.env.VUE_APP_GOOGLE_OPTIMISE_ID %>"></script>
+    <% } %>
+
+    <% if(process.env.VUE_APP_GOOGLE_RECAPTCHA_KEY != null) { %>
+    <!-- Google reCaptcha -->
+      <script defer src="https://www.google.com/recaptcha/api.js?render=<%= process.env.VUE_APP_GOOGLE_RECAPTCHA_KEY %>"></script>
+      <% } %>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','<%= process.env.VUE_APP_GOOGLE_TAG_MANAGER_ID %>');</script>
+
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <!-- built files will be auto injected -->
+  </body>
+</html>

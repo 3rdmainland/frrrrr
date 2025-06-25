@@ -1,0 +1,46 @@
+.slide-out-navigation {
+
+  width: 100%;
+
+  // reserve space for close button
+  @include safeArea("top", padding-top, 4em);
+  @include safeArea("right", padding-right, 1em);
+  @include safeArea("bottom", padding-bottom, 0);
+  @include safeArea("left", padding-left, 1em);
+
+  @media (min-width: $screen-md) {
+    width: 25%;
+    min-width: 320px;
+  }
+
+  .list--group {
+    background-color: rgba(255, 255, 255, 0.2);
+
+    // Active group header
+    &__header {
+      &:hover,
+      &--active .list__tile {
+        background-color: rgba(255, 255, 255, 0.35);
+      }
+    }
+  }
+
+  .list__tile {
+    &--active { color: color('yellow', 'base'); }
+  }
+
+  .welcome-message {
+
+    margin-left: 1em; 
+
+    &__hey {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    &__username {
+      font-size: 4em;
+      word-break: break-word;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "name": "nandos-web-app",
+  "version": "18.1.4",
+  "private": true,
+  "description": "A Vue.js project",
+  "author": "Brad Botha <brad426@gmail.com>",
+  "scripts": {
+    "serve": "node build/run-region.js --serve",
+    "build": "node build/run-region.js --build",
+    "build:prompt": "node build/build-interactive.js"
+  },
+  "dependencies": {
+    "@capacitor/app": "^5.0.6",
+    "@capacitor/browser": "^5.0.6",
+    "@capacitor/core": "^5.2.3",
+    "@capacitor/splash-screen": "^5.0.6",
+    "bowser": "^1.7.3",
+    "capacitor-rate-app": "^2.0.0",
+    "core-js": "^3.6.4",
+    "es6-map": "^0.1.5",
+    "haversine": "^1.1.1",
+    "intersection-observer": "^0.5.1",
+    "mdn-polyfills": "^5.0.0",
+    "nandos-a-b-testing": "^18.0.0",
+    "nandos-core-ui": "^18.0.0",
+    "nandos-dev-logger": "^18.0.0",
+    "nandos-i18n": "^18.0.0",
+    "nandos-middleware-api": "^18.0.0",
+    "nandos-ordering": "^18.0.0",
+    "nandos-sosatie-game": "^16.0.0",
+    "nandos-timing-utils": "^18.0.0",
+    "nandos-tracking": "^18.0.0",
+    "object.values": "^1.0.4",
+    "portal-vue": "^1.1.0",
+    "promise-polyfill": "^6.0.2",
+    "url-polyfill": "^1.0.8",
+    "vue": "^2.6.10",
+    "vue-router": "3.4.9",
+    "vue-youtube": "^1.4.0"
+  },
+  "overrides": {
+    "capacitor-rate-app": {
+      "@capacitor/android": "$@capacitor/android",
+      "@capacitor/core": "$@capacitor/core",
+      "@capacitor/ios": "$@capacitor/ios"
+    },
+    "@capacitor-community/barcode-scanner": {
+      "@capacitor/android": "$@capacitor/android",
+      "@capacitor/core": "$@capacitor/core",
+      "@capacitor/ios": "$@capacitor/ios"
+    }
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.2.2",
+    "@vue/cli-service": "~4.2.2",
+    "chalk": "^2.4.2",
+    "cross-spawn": "^6.0.5",
+    "dotenv": "^8.0.0",
+    "enquirer": "^2.3.6",
+    "fs-extra": "^7.0.1",
+    "sass": "^1.18.0",
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-yaml": "^1.0.1",
+    "vue-template-compiler": "^2.5.21",
+    "yargs": "^13.2.2"
+  }
+}

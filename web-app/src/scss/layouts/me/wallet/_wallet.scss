@@ -1,0 +1,62 @@
+@use "sass:math";
+
+.wallet {
+
+	.gift-card-list-item {
+		
+		.list__tile {
+			margin-bottom: 1em;
+			background-color: white;
+			border-radius: 10px;
+			box-shadow: rgba(0, 0, 0, 0.08) 0 4px 8px;
+		}
+
+		.list__tile__title,
+		.list__tile__sub-title {
+			width: 100%;
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+		}
+
+		.list__tile__title {
+			font-size: 0.92em;
+		}
+
+		.list__tile__sub-title {
+			font-size: 0.85em;
+			margin-bottom: 0.25em;
+			color: color("grey", "base");
+		}
+
+		.gift-card-list-item__preview-img {
+
+			$aspect-radtio: math.div(312, 500);
+			width: 7.5em;
+			height: 5.5em;
+			object-fit: cover;
+
+			@media (min-width: $screen-sm) {
+				width: 9em;
+				height: #{(9 * $aspect-radtio)}em;
+			}
+		}
+	}
+}
+
+.gift-card-qr-code {
+	width: 25em;
+	min-height: 16.7em;
+	max-width: 100%;
+	image-rendering: pixelated;
+	background-color: color("grey", "lighten-2");
+	// the QR code images have a white-border around them
+	//clip-path: inset(15%);
+	margin: -1.5em;
+
+}
+
+@media all and (-ms-high-contrast:none) {
+	// IE 11 bug fix
+	.wallet-qr-code-tile .tile__content { display:block; flex-basis: 100%; }
+}

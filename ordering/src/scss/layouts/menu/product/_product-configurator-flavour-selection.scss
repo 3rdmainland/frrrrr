@@ -1,0 +1,164 @@
+.product-configurator-flavour-selection {
+
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+
+  .no-sauce-btn {
+    color: inherit;
+    transition: none; // fixes transition timing of nested btn content
+  }
+
+  .peri-ometer-label,
+  .no-sauce-btn .btn__content {
+    transition: color 0.2s linear, background-color 0.2s linear, fill 0.2s linear;
+  }
+
+  .half-and-half-btn,
+  .single-flavour-btn {
+    font-size: 1.6em;
+    > .btn__content {
+      flex: auto;
+      white-space: normal;
+      font-size: 48%;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  .peri-ometer__wrapper {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: center;
+  }
+
+  .peri-ometer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50vh;
+    min-height: 230px;
+  }
+
+  .instructions {
+
+    pointer-events: none;
+
+    &__falvour-1,
+    &__falvour-2 {
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    &__falvour-1 {
+      top: 16%;
+      left: calc(50% - 6.5em);
+      text-align: left;
+      transform: translate(-50%, 0);
+
+      .instructions__label { margin-bottom: 0.25em; }
+    }
+
+    &__falvour-2 {
+      bottom: 15%;
+      left: calc(50% + 5.5rem);
+      text-align: right;
+      transform: translate(-50%, 0);
+
+      // ************************************ \\
+      // Offsets for devices with tiny heights
+      // ************************************ \\
+      @media (max-height: 510px) { bottom: 10%; }
+      @media (max-height: 470px) { bottom: 4%; }
+      @media (max-height: 425px) { bottom: -7%; }
+      @media (max-height: 400px) { bottom: -15%; }
+      // ************************************ \\
+
+      @media (min-width: $screen-sm) { left: calc(50% + 3.5rem); }
+      
+      .instructions__arrow { transform: rotate(180deg); }
+    }
+
+    &__label { font-size: 1.6em; margin: 0; }
+
+    &__arrow { width: 4em; }
+  }
+
+  .peri-ometer-bg {
+    overflow: visible;
+    z-index: -1;
+
+    svg { overflow: visible; }
+  }
+
+  // overdraw height to cover scrollable area on small devices
+  .peri-ometer-bg-layer-overdraw { height: 150%; }
+
+  // Hide the peri-ometer-label when we have a second flavour selected
+  &[class*='flavour-2-'] .peri-ometer-label { opacity: 0; }
+
+
+  //&:not([class*='flavour-2-']) { }
+
+  /**
+   * ********************************
+   * ***** Flavour 1 modifiers ******
+   * ********************************
+   */
+  &.flavour-1-no-sauce,
+  &.flavour-1-xtra-hot,
+  &.flavour-1-hot {
+    .peri-ometer-label { fill: color("creamy", "base"); }
+
+    .done-btn {
+      color: color("grey", "darken-4");
+      background-color: color("creamy", "base");
+    }
+
+    .close-btn,
+    .no-sauce-btn {
+      color: color("creamy", "base");
+    }
+  }
+
+  &.flavour-1-mild,
+  &.flavour-1-mozam-paprika,
+  &.flavour-1-lemon-and-herb,
+  &.flavour-1-tangy-tomato,
+  &.flavour-1-plain-ish {
+    .peri-ometer-label { fill: color("grey", "darken-4"); }
+  }
+
+  &.flavour-1-no-sauce {
+    .no-sauce-btn {
+      text-decoration: underline;
+      color: color("yellow", "base");
+    }
+  }
+
+
+  /**
+   * ********************************
+   * ***** Flavour 2 modifiers ******
+   * ********************************
+   */
+  &.flavour-2-xtra-hot,
+  &.flavour-2-hot {
+    .peri-ometer-label { fill: color("creamy", "base"); }
+    .close-btn { color: color("creamy", "base"); }
+
+    .done-btn {
+      color: color("grey", "darken-4");
+      background-color: color("creamy", "base");
+    }
+  }
+
+  &.flavour-2-mild,
+  &.flavour-2-mozam-paprika,
+  &.flavour-2-lemon-and-herb,
+  &.flavour-2-tangy-tomato,
+  &.flavour-2-plain-ish {
+    .peri-ometer-label { fill: color("grey", "darken-4"); }
+    .close-btn { color: color("grey", "darken-4"); }
+  }
+}

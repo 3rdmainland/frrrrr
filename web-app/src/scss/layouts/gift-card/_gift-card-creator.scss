@@ -1,0 +1,54 @@
+.gift-card-creator {
+
+  h2 { max-width: 8em; } 
+
+  .gift-card-renderer {
+    position: relative;
+    
+    canvas {
+      width: 100%;
+      max-width: 22em;
+      display: block;
+      margin: 0 auto;
+      border-radius: 15px;
+      box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.35);
+    }
+
+    .progress-circular {
+      position: absolute;
+      top: calc(50% - (32px / 2));
+      left: calc(50% - (32px / 2));
+    }
+  }
+
+  &__card-design {
+
+    .card-design-image {
+      border-radius: 8px;
+      transition: filter 0.3s linear;
+      cursor: pointer;
+      opacity: 1;
+      background-color: color("grey", "lighten-2");
+    }
+
+    .carousel {
+      &__slide { height: 15vh; }
+    }
+
+    .image-grid {
+
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr) ) ;
+      grid-gap: 0.5em 1em;
+      width: 100%; 
+
+      &__cell {
+        position: relative;
+        overflow: hidden;
+        min-height: 3em;
+
+        &.selected .card-design-image { filter: brightness(40%); }
+      }
+    }
+  }
+}

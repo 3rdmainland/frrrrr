@@ -1,0 +1,188 @@
+.menu-tile {
+
+  transition: box-shadow $primary-transition;
+  
+  @media (hover: hover) {
+    &:hover {
+      box-shadow:
+       rgba(0, 0, 0, 0.06) 0px 2.2px 4px,
+       rgba(0, 0, 0, 0.12) 0 6px 16px;
+
+      @media (prefers-reduced-motion: no-preference)  {
+        .triangle-decorator { animation: heartbeat-bounce 1.7s infinite; }
+      }
+    }
+  }
+
+  /**
+   * Make nested tiles transparent, so parent can control the look
+   */
+  .menu-tile { background-color: transparent; }
+
+  ////////////////////////////////////////////////////
+  // <pieces>
+  .tile__content {
+    position: relative;
+    *:last-child { margin-bottom: 0 !important; }
+  }
+
+  // Image part
+  .menu-tile__item-image {
+    flex: 1 1 auto;
+    min-height: 12.5em;
+    @media (min-width: $screen-md) { min-height: 15em; }
+  }
+
+  // Detail part (name, description etc)
+  .menu-tile__item-details {
+    flex: 0 1 auto;
+    justify-content: flex-start;
+
+    .blocked--heading {
+      font-size: 2.4em;
+      margin-bottom: 0.4em;
+    }
+  }
+
+  .menu-tile__item-image ~ .menu-tile__item-details {
+    margin-top: -3em;
+  }
+
+  
+  // </pieces>
+  ////////////////////////////////////////////////////
+
+
+  ////////////////////////////////////////////////////
+  // <variants>
+  &--category {
+
+    // Allow categories' item listing to expand, while the header area only occupies the space that it
+    .menu-tile__category-item-listing {
+      flex: 1 1 auto;
+      > .list {
+        flex: 1 1 auto;
+      }
+    }
+  }
+
+  &--category-carousel-tile {
+    min-height: 40vh;
+
+    .carousel {
+      width: 100%;
+      &__page-scroller { gap: 0; }
+
+      // Make space for carousel breadcrumbs on child tiles
+      &--overlay-breadcrumbs {
+        .tile__content:last-of-type { padding-bottom: 3em; }
+      }
+
+      // Make space for carousel control buttons on child tiles
+      &--overlay-control-btns {
+        .tile__content { padding-left: 3em; padding-right: 3em; }
+      }
+
+      // Remove drop-shadow and border-radius of nested tiles
+      .menu-tile {
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &--product-tile,
+  &--auto-combo-tile {
+    margin-left: 0;
+    margin-right: 0;
+    cursor: pointer;
+
+    .tile__content.menu-tile__item-image { min-height: 10em; }
+
+    // Product tiles that are not using the "expansive-layout" (giant "blocked" style heading) don't suck the heading up over the image
+    &:not(.menu-tile--product-tile--expansive-layout) {
+      .menu-tile__item-details {
+        margin-top: 0;
+        text-align: left;
+        flex-grow: 1;
+
+        .product-description {
+          color: color("grey", "darken-1");
+        }
+      }
+    }
+
+    .product-image-container {
+      position: relative;
+      flex: 1 1 auto;
+      width: 100%;
+      height: 100%;
+    }
+
+    .product__badge {
+      $skew-size: 0.4em;
+      position: relative;
+      z-index: 1;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{$skew-size}), 0 100%);
+      margin-bottom: -$skew-size;
+      padding: 0.3em 1em 0.5em 1em;
+      font-weight: bold;
+    }
+
+    .product-details__configured-description {
+      $skew-size: 0.4em;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - #{$skew-size}), 0 100%);
+      margin-bottom: -$skew-size;
+      padding-top: 0.3em;
+      padding-bottom: 0.5em;
+
+      margin-left: - map-get($spacers, 'three');
+      margin-right: - map-get($spacers, 'three');
+    }
+  }
+
+  &--surprise-me-tile {
+    .carousel {
+      width: 100%;
+      height: 100%;
+
+      &__page-scroller { gap: 0; }
+    }
+  }
+
+
+
+  ////////////////////////////////////////////////////
+  // <Modifiers>
+  &--with-accent-color {
+    .list__tile__sub-title { color: rgba(0, 0, 0, 0.68); }
+    .product__feature { filter: brightness(0); }     
+    .triangle-decorator { background-color: currentColor !important; }
+  }
+
+  &--suppress-child-accent-colors {
+    .tile { background-color: transparent !important; } // Suppress children's accent colors
+  }
+
+  &--featured {
+    .tile__content.menu-tile__item-image {
+      @media (min-width: $screen-md) { min-height: 25em; }
+    }
+    @media (min-width: 1200px) {
+      grid-column-end: span 2; // increase column span of featured tiles
+    }
+  }
+  // </Modifiers>
+  ////////////////////////////////////////////////////
+
+
+  // Fix for Safari: Nested tiles in carousel are not clipped within the rounded corners of their parent tile
+  @media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+      .carousel .carousel__slide {
+        border-radius: 10px !important;
+      }
+    }
+  }
+
+}

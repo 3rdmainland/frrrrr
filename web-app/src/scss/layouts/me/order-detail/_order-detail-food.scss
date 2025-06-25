@@ -1,0 +1,30 @@
+.food-order-detail {
+	
+	.tile {
+		margin-bottom: 3em;
+	}
+
+	.fulfilment-status-image {
+		height: 15em;
+		object-fit: cover;
+		width: 100%;
+		min-height: 100%;
+	}
+
+	.app-download-links {
+		img {
+			width: 12em;
+		}
+	}
+
+	// remove horizontal padding from basket listing
+	.basket-item-list {
+
+		.list__subheader,
+		.list__tile {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+
+}

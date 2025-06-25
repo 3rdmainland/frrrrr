@@ -1,0 +1,40 @@
+$nav-item-font-size: 1.4;
+$sub-nav-item-font-size: 1.3;
+
+.header-nav {
+
+  height: 100%;
+
+  &__nav-item {
+    font-size: $nav-item-font-size + em;
+    display: inline-flex;
+    padding: 1em;
+    align-items: center;
+    height: 100%;
+    text-transform: uppercase;
+
+    &.active,
+    &.router-link-active,
+    &:hover { color: #ce0a24; }
+  }
+
+  &__sub-nav {
+    position: fixed;
+    top: calc(#{$app-header-height-md} - 1px);
+    left: 0;
+    right: 0;
+    background-color: color('grey', 'darken-4');
+
+    .sub-nav__item {
+      font-size: $sub-nav-item-font-size + em;
+      display: inline-flex;
+      padding: 0.65em 1em;
+      color: white;
+      text-transform: none;
+
+      &.active,
+      &.router-link-active,
+      &:hover { background-color: #ce0a24; }
+    }
+  }
+}

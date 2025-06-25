@@ -1,0 +1,26 @@
+# Regionalisation setting
+# Language, number and date settings
+# Other region specific settings belong in /build/env/bw 
+
+# { Required }
+languages:
+  - name: English (Botswana)
+    iso: en-BW
+    
+currency: BWP
+timeZone: Africa/Gaborone
+latitude: -22.328474
+longitude: 24.684866000000056
+
+# { Optional } number format overrides
+numberFormats:
+  en-BW:
+    money:
+      postProcessors: # Stylistic overrides of Intl.NumberFormat result
+        - test: "^BWP" # Remove 3 character currency symbol (on some browsers)
+          replace: "P"
+
+    moneyRounded:
+      postProcessors: # Stylistic overrides of Intl.NumberFormat result
+        - test: "^BWP" # Remove 3 character currency symbol (on some browsers)
+          replace: "P"

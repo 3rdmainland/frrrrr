@@ -1,0 +1,76 @@
+.product-configurator {
+
+  &--at-root:not(.split-layout) {
+    .container {
+      margin-top: -3rem;
+    }
+  }
+
+  &:not(&--at-root):not(.split-layout) {
+    .product-details {
+      // makes sure heading don't get too close to floating close button
+      margin-left: 3.5em !important;
+      margin-right: 3.5em !important;
+    }
+  }
+
+  &.split-layout {
+    .page__content {
+      // bottom: 2.5em; // leave space for fixed "bag it" button
+      padding-bottom: 5em; // leave space for fixed "bag it" button
+    }
+  }
+
+  // Allow accent color to effect clipped block's "border" color
+  .block-clipped--with-border:before {
+    top: 0.8em;
+    background-color: currentColor;
+  }
+
+
+  .close-btn {
+    color: inherit;
+    transition: none; // fixes transition timing of nested btn content
+    top: 1em;
+  }
+
+  .close-btn .btn__content {
+    transition: color 0.2s linear, background-color 0.2s linear, fill 0.2s linear;
+  }
+
+  .page-hero {
+    min-height: 12em;
+    height: 26vh;
+  }
+
+
+  .item-badges {
+    flex: 1 1 5%
+  }
+
+  .item-content {
+    flex: 1 1 60%;
+
+    .list__tile__title {
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row;
+      display: flex
+    }
+  }
+
+  .item-chips {
+    flex: 1 1 12%
+  }
+
+}
+
+// Disable zoom in transition on header image
+.product:not(.product--do-header-animation) .product-configurator {
+
+  .page-hero__image:not(.img--loaded) {
+    transition: none;
+    transform: scale(1);
+    opacity: 1;
+  }
+}

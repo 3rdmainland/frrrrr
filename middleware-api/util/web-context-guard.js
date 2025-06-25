@@ -1,0 +1,1 @@
+if(process.env.VUE_APP_CONTEXT == 'ADMIN') throw new Error('WEB specific module imported in admin context')

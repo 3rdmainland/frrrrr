@@ -1,0 +1,35 @@
+# Regionalisation setting
+# Language, number and date settings
+# Other region specific settings belong in /build/env/za 
+
+# { Required }
+languages:
+  - name: English (South Africa)
+    iso: en-ZA
+  # - name: Arabic (Saudi Arabia)
+  #   iso: ar-SA
+  #   rightToLeft: true
+    
+currency: ZAR
+timeZone: Africa/Johannesburg
+latitude: -30.559482
+longitude: 22.937505999999985
+
+# { Optional } number format overrides
+numberFormats:
+  en-ZA: # locale
+    money: # style
+      postProcessors: # Stylistic overrides of Intl.NumberFormat result
+        - test: "^R\u00a0" # Remove currency symbol and non-breaking space
+          replace: ""
+        - test: "," # Replace all comma separators with period
+          flags: g
+          replace: "."
+
+# { Optional } date/time format overrides
+# dateTimeFormats:
+#   en-ZA:
+#     example:
+#       year: numeric
+#       month: short
+#       day: numeric

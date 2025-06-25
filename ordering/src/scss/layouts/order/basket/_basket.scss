@@ -1,0 +1,81 @@
+.basket {
+
+  .list__tile { min-height: 3.4em; }
+
+  .fab-btn__container {
+    position: relative;
+    .fab-btn {
+      top: -2.75em;
+      font-size: 2em;
+
+      &__inner {
+        display: flex;
+        flex-direction: column;
+        font-size: 45%;
+        > * {
+          margin-bottom: 0.1em;
+        }
+      }
+    }
+  }
+
+  // Let quantity chip take up entire row on xs devices
+  @media (max-width: $screen-xs-max) {
+    &__item-listing {
+      font-size: 13px;
+
+      .list__tile,
+      .list__subheader {
+        padding-left: 0.1em;
+        padding-right: 0.1em;
+      }
+
+      .money,
+      &-remove-btn { font-size: 14px; }
+    }
+  }
+
+  .basket__item-listing-remove-btn { top: -0.5em; }
+
+  .carousel {
+    // Remove drop-shadow of nested tiles
+    .menu-tile { box-shadow: none; }
+    // Make sure tile's drop shadow doesn't get cut off. Because the tile is now padded, drop the grid/flex gaps
+    // &__slide { padding: 0 0.5em 1em 0.5em; }
+    // &__page-scroller, &__page { gap: 0; }
+    
+    // &__breadcrumbs { margin-top: 0; }
+  }
+}
+
+.comfirm-auto-combo-dialog {
+
+  &__content-wrapper {
+    border-radius: 10px;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
+
+  &__header {
+    margin-bottom: -2.5em;
+    min-height: 10em;
+  }
+
+  &__content {
+    padding-top: 3em;
+  }
+}
+
+.hero-cta{
+  .btn__content {
+    .nandos-hand {
+      font-size: 1.5em;
+      line-height: 1;
+
+      @media (max-width: $screen-xs-max) {
+        font-size: 1.75em;
+        padding: .15em;
+      }
+    }
+  }
+}

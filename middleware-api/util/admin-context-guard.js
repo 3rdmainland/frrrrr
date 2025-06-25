@@ -1,0 +1,1 @@
+if(process.env.VUE_APP_CONTEXT != 'ADMIN') throw new Error('Admin specific module imported in non-admin context')

@@ -1,0 +1,97 @@
+.app-header {
+
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: $app-header-height;
+  background-color: white;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+
+  @include safeArea("top", padding-top, 0);
+  @include safeArea("top", height, $app-header-height);
+
+  @media (min-width: $screen-md) {
+    @include safeArea("top", height, $app-header-height-md);
+  }
+
+  &--transparent {
+    background-color: transparent;
+    border-bottom: none;
+    box-shadow: none;
+    pointer-events: none;
+
+    > * {
+      pointer-events: auto;
+    }
+  }
+  
+  .btn { margin: 0; }
+}
+
+
+.app-header {
+  .btn {
+    color: inherit; 
+  }
+
+  .nav-btns .btn { // hamburger || up/left || close button
+    margin-left: -0.5em;
+  }
+
+  .logo {
+    //width: 9em;
+    height: 2.93em; // We need to set the height for IE
+  }
+}
+
+.app-header {
+  .header-nav {
+    flex: 1 0 auto;
+    text-align: center;
+  }
+}
+
+.app-header {
+  .page-title {
+    flex: 1 1 auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &--truncated { overflow: hidden ; }
+  }
+}
+
+.app-header {
+  .toolbar--actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @media (min-width: $screen-md) {
+      > * {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+      }
+
+      > *:last-child { margin-right: 0; }
+    }
+  }
+}
+
+.app-header {
+  .loading-indicator {
+    position: absolute;
+    left: 0;
+    margin: 0;
+    pointer-events: none;
+  }
+}

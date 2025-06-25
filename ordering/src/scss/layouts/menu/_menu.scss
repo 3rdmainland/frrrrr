@@ -1,0 +1,141 @@
+.menu {
+
+  .menu__order-setup-info {
+    max-width: 100%;
+  }
+
+  .menu__search-input {
+    .form-element__container {
+      border-width: 0;
+      background-color: color("yellow", "base");
+    }
+  }
+
+  .quick-link {
+    color: color("shades", "white") !important;
+    // baackground-color: color("shades", "black") !important;
+    text-transform: capitalize !important;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    border-radius: 7px;
+
+    &.is-active {
+      color: color("yellow", "base") !important;
+    }
+  }
+
+  .menu-item-listing {
+
+    &__accent-color {
+      position: fixed;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      clip-path: polygon(0 0, 100% 0, 100% 30vh, 0 40vh);
+
+      @media (min-width: $screen-md) {
+        clip-path: polygon(0 0, calc(43% - 5em) 0, 43% 100%, 0 100%);
+      }
+    }
+  }
+
+  /**
+   * Menu grid styling for browsers that don't support CSS grid
+   */
+  .menu-grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .tile {
+      width: calc(100% - 1.5em);
+      margin: 0.75em !important;
+    }
+  }
+
+  &:not(.is-root-menu) {
+    .wide__container {
+      max-width: 1400px;
+      margin: 0 auto;
+
+      @media (min-width: $screen-md) {
+        width: 90%;
+        padding-left: 2em;
+        padding-right: 2em;
+        flex-basis: auto;
+      }
+    }
+
+    .tile {
+      @media (min-width: 700px) { width: calc(50% - 1.5em); }
+      @media (min-width: 1200px) { width: calc(33% - 1.5em); }
+    }
+  }
+
+  /**
+   * Override legacy browser menu grid styles and replace with CSS grid
+   */
+  @supports (display: grid) {
+
+    .wide__container {
+      max-width: 1400px;
+      margin: 0 auto;
+
+      @media (min-width: $screen-md) {
+        width: 90%;
+        padding-left: 2em;
+        padding-right: 2em;
+        flex-basis: auto;
+      }
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+      grid-gap: 1.25em;
+
+      @media (min-width: $screen-sm) {
+        grid-template-columns: repeat(auto-fill, minmax(26em, 1fr));
+      }
+
+      // at 1200px we lock into a 3 column grid
+      @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      &--masonry-pack {
+        grid-auto-rows: 20px;
+        grid-auto-flow: dense;
+      }
+
+      .tile {
+        width: auto !important;
+        margin: 0 !important;
+      }
+    }
+  }
+
+  .hint {
+    position: relative;
+
+    .hint__icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 5em;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.menu__mobile-order-setup-info {
+  font-size: 12px;
+  display: inline-block;
+  max-width: calc(100% - 1.15em);
+  vertical-align: middle;
+
+  @media (min-width: $screen-sm) { font-size: inherit; }
+}

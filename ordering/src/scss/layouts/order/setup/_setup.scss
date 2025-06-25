@@ -1,0 +1,231 @@
+.store {
+  &__title {
+    font-size: 1.2em;
+  }
+
+  &__facility {
+    padding-right: 0.2em;
+    height: 1.2em;
+    &:last-child{ padding-right: 0; }
+  }
+}
+
+.order-type-toggles-wrapper {
+  height: auto;
+  z-index: 1;
+}
+
+.order-type-toggles {
+  position: relative;
+
+  .btn {
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+
+    &--active {
+      pointer-events: none;
+      &:before { background-color: transparent; }
+    }
+    // hide underline on inactive button
+    &:not(.btn--active) .underline-squiggle:after { background-color: transparent !important; }
+  }
+
+  .background-bar {
+    background-color: rgba(0, 120, 140, 0.4);
+    mix-blend-mode: multiply;
+  }
+}
+
+.order-setup {
+
+  $page-hero-height: 10.5em;
+  $page-hero-margin-bottom: 1.5em;
+
+  .dual-pane > .page .page__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-hero {
+    position: sticky;
+    top: $app-header-height - $page-hero-height + 2.3em;
+    min-height: $page-hero-height;
+    margin-bottom: $page-hero-margin-bottom;
+    z-index: 1;
+
+    padding-left: 1em;
+    padding-right: 1em;
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+
+  // Suck up, to overlap page-hero
+  .chosen-address__wrapper {
+    position: sticky;
+    top: $app-header-height;
+    z-index: 1;
+    margin-top: -3.5em;
+
+    .chosen-address .form-control__wrapper {
+      border-radius: 5px;
+      border: none;
+      background-color: white;
+      @extend .elevation-1;
+    }
+  }
+
+  // Suck up, to overlap chosen address
+  .map-outlet__wrapper {
+    height: 15em;
+    margin-top: -2.7em;
+  }
+  
+  @media (min-width: $screen-md) {
+    .page-hero,
+    .chosen-address__wrapper {
+      position: relative;
+      top: auto;
+    }
+
+    .page-hero {
+      height: auto;
+
+      &__title {
+        margin-top: 0.3em; // help to optically center title
+        margin-bottom: 0.3em; // help to optically center title
+      }
+    }
+  }
+
+  /**
+   * Step 1
+   */
+  .order-setup-type {
+
+    .tile-grid {
+      display: grid;
+      grid-gap: 1.5em;
+      width: 100%;
+
+      @media (min-width: $screen-md) { 
+        grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+      }
+
+      .tile { cursor: pointer; margin: 0; }
+    }
+
+    .order-type-header {
+      flex: 0 0 auto;
+      max-width: 100%;
+      max-height: 6.8em;
+      height: 6.8em;
+      padding: 0;
+
+      @media (min-width: $screen-md) { 
+        max-height: 9em;
+        height: 9em;
+      }
+      
+      .order-type-image { height: 100%; }
+    }
+
+    .kerbside-badge {
+      right: 0.5em;
+      bottom: -1em;
+      font-size: 2.2em;
+
+      .btn__content {
+        font-size: 0.35em;
+        white-space: normal;
+        max-width: 100%;
+      }
+    }
+  }
+
+  /**
+   * Step 2
+   */
+  .order-setup-address {
+
+    .map-outlet__wrapper {
+      height: auto; // override default
+      margin-top: 0; // override default
+      position: absolute;
+      top: $page-hero-height + $page-hero-margin-bottom - $app-header-height - 0.2em;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .google-places-input-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: $screen-sm-max) {
+
+      .google-places-input-wrapper {
+        transition: transform $primary-transition;
+        will-change: transform;
+      }
+
+      &.has-created-new-address {
+        .google-places-input-wrapper {
+          transform: translateY(-3.8em);
+          flex-basis: auto;
+        }
+      }
+    }
+  }
+
+  /**
+   * Step 3
+   */
+  .order-setup-address-details {
+  }
+
+  /**
+   * Step 4
+   */
+  .order-setup-store {
+    .kerbside-collection-input .form-control__label { margin-bottom: 0; }
+    @media (min-width: $screen-sm) {
+      .kerbside-collection-label-badge {
+        order: 1;
+      }
+    }
+  }
+
+  /**
+   * Step 2
+   * Eat In / At Table Flow
+   */
+  .order-setup-eat-in-landing {
+    .scan-prompt {
+      $btn-size: 4em;
+
+      margin-top: $btn-size * 1.5;
+      overflow: visible;
+
+      &__btn {
+        font-size: $btn-size;
+        top: -$btn-size * 0.5;
+        margin-bottom: -$btn-size * 0.5 + 0.25em;
+        box-shadow: rgba(150, 160, 204, 0.3) 0 4px 8px;
+
+        .btn__content {
+          flex-direction: column;
+          margin-bottom: 0.15em;
+        }
+
+          &__info-text {
+            font-size: 12px;
+            margin-top: -0.75em;
+          }
+      }
+    }
+  }
+}

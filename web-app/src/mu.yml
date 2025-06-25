@@ -1,0 +1,26 @@
+# Regionalisation setting
+# Language, number and date settings
+# Other region specific settings belong in /build/env/bw 
+
+# { Required }
+languages:
+  - name: English
+    iso: en-MU
+    
+currency: MUR
+timeZone: Indian/Mauritius
+latitude: -20.2633785
+longitude: 57.476333
+
+# { Optional } number format overrides
+numberFormats:
+  en-MU:
+    money:
+      postProcessors: # Stylistic overrides of Intl.NumberFormat result
+        - test: "^MUR" # Remove 3 character currency symbol (on some browsers)
+          replace: "Rs"
+
+    moneyRounded:
+      postProcessors: # Stylistic overrides of Intl.NumberFormat result
+        - test: "^MUR" # Remove 3 character currency symbol (on some browsers)
+          replace: "Rs"

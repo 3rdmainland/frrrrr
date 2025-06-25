@@ -1,0 +1,314 @@
+@import "~nandos-core-ui/src/scss/helper/easing";
+
+.peri-ometer {
+  max-width: 100%;
+  transform: translate3d(-6px, 0, 0); // the svg's content is set slightly to the right of it's viewbox, to allow for selected-flavour-indicators to grow into the extra space on the left
+  will-change: transform;
+
+  .selected-flavour-indicators > polygon,
+  .half-and-half-selected-flavour-indicators > polygon {
+    pointer-events: none;
+  }
+
+  .flavour-labels > path {
+    pointer-events: none;
+
+    &.disabled { opacity: 0.15; }
+  }
+
+  .flavour-backgrounds > path {
+    cursor: pointer;
+
+    &.disabled {
+      opacity: 0.15;
+      pointer-events: none;
+    }
+  }
+
+  /**
+   * ********************************
+   * ******** Set up origins ********
+   * * so transitions looks correct *
+   * ********************************
+   */
+  .flavour-labels {
+    .xtra-hot { transform-origin: 174.7px 43.6px; }
+    .hot { transform-origin: 180.5px 143.6px; }
+    .mild { transform-origin: 178px 240.5px; }
+    .mozam-paprika { transform-origin: 166.8px 329.4px; }
+    .lemon-and-herb { transform-origin: 124.9px 412.9px; }
+    .tangy-tomato { transform-origin: 53.5px 490.6px; }
+    .plain-ish { transform-origin: 53.5px 490.6px; }
+  }
+
+  .selected-flavour-indicators {
+    .xtra-hot { transform-origin: 250px 0px; }
+    .hot { transform-origin: 265.9px 100px; }
+    .mild { transform-origin: 208.1px 203px; }
+    .mozam-paprika { transform-origin: 177.8px 293.5px; }
+    .lemon-and-herb { transform-origin: 168.6px 380px; }
+    .tangy-tomato { transform-origin: 112.8px 456.5px; }
+    .plain-ish { transform-origin: 112.8px 456.5px; }
+  }
+
+  .half-and-half-selected-flavour-indicators {
+    .xtra-hot { transform-origin: 127px 0px; }
+    .hot { transform-origin: 193px 100px; }
+    .mild { transform-origin: 134px 203px; }
+    .mozam-paprika { transform-origin: 151px 294px; }
+    .lemon-and-herb { transform-origin: 102px 380px; }
+    .tangy-tomato { transform-origin: 2px 456px; }
+    .plain-ish { transform-origin: 2px 456px; }
+  }
+
+  /**
+   * ********************************
+   * ***** Transitions Settings *****
+   * ********************************
+   */
+  .flavour-labels > path,
+  .selected-flavour-indicators > polygon,
+  .half-and-half-selected-flavour-indicators > polygon {
+    transition: transform 0.3s $easeOutBack;
+    will-change: transform;
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
+  }
+
+  // Starting state for selected-flavour-indicators and half-and-half-selected-flavour-indicators shapes
+  .selected-flavour-indicators > polygon,
+  .half-and-half-selected-flavour-indicators > polygon {
+    transform: scale(0, 1); // hidden until active
+  }
+
+  /**
+   * ********************************
+   * ***** Selected Color States ****
+   * ********************************
+   */
+  &:not(.peri-ometer--intro-animation) { // prevent intro animation from interfering with transition
+
+    // f1 is short for flavour-1, f2 for flavour-2
+
+    // single flavour / first selected states
+    &.peri-ometer--f1-xtra-hot {
+      .flavour-labels .xtra-hot { transform: translate(-25px, 0) scale(1.09); }
+      .selected-flavour-indicators .xtra-hot { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f1-hot {
+      .flavour-labels .hot { transform: translate(-25px, 0) scale(1.09); }
+      .selected-flavour-indicators .hot { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f1-mild {
+      .flavour-labels .mild { transform: translate(-45px, 0) scale(1.2); }
+      .selected-flavour-indicators .mild { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f1-mozam-paprika {
+      .flavour-labels .mozam-paprika { transform: translate(-30px, 0) scale(1.1); }
+      .selected-flavour-indicators .mozam-paprika { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f1-lemon-and-herb {
+      .flavour-labels .lemon-and-herb { transform: translate(-35px, 0) scale(1.1); }
+      .selected-flavour-indicators .lemon-and-herb { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f1-tangy-tomato {
+      .flavour-labels .tangy-tomato { transform: translate(-15px, 0) scale(1.1); }
+      .selected-flavour-indicators .tangy-tomato { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f1-plain-ish {
+      .flavour-labels .plain-ish { transform: translate(-21px, 0) scale(1.1); }
+      .selected-flavour-indicators .plain-ish { transform: scale(1, 1); }
+    }
+
+    // half & half / second flavour selected states
+    &.peri-ometer--f2-xtra-hot {
+      .flavour-labels .xtra-hot { transform: translate(25px, 0) scale(1.09); }
+      .half-and-half-selected-flavour-indicators .xtra-hot { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f2-hot {
+      .flavour-labels .hot { transform: translate(25px, 0) scale(1.09); }
+      .half-and-half-selected-flavour-indicators .hot { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f2-mild {
+      .flavour-labels .mild { transform: translate(45px, 0) scale(1.2); }
+      .half-and-half-selected-flavour-indicators .mild { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f2-mozam-paprika {
+      .flavour-labels .mozam-paprika { transform: translate(30px, 0) scale(1.1); }
+      .half-and-half-selected-flavour-indicators .mozam-paprika { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f2-lemon-and-herb {
+      .flavour-labels .lemon-and-herb { transform: translate(35px, 0) scale(1.1); }
+      .half-and-half-selected-flavour-indicators .lemon-and-herb { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f2-tangy-tomato {
+      .flavour-labels .tangy-tomato { transform: translate(15px, 0) scale(1.1); }
+      .half-and-half-selected-flavour-indicators .tangy-tomato { transform: scale(1, 1); }
+    }
+    &.peri-ometer--f2-plain-ish {
+      .flavour-labels .plain-ish { transform: translate(21px, 0) scale(1.1); }
+      .half-and-half-selected-flavour-indicators .plain-ish { transform: scale(1, 1); }
+    }
+  }
+
+
+  /**
+   * ********************************
+   * ***** Intro Animation code *****
+   * ********************************
+   */
+  $start-delay: 0.1;
+
+  &.peri-ometer--intro-animation {
+
+    .flavour-backgrounds > path {
+      @for $i from 0 through 5 {
+        &:nth-child(#{$i + 1}) {
+          animation: flavour-backgrounds-intro-animation 0.15s #{$start-delay + $i * 0.1}s $easeOutQuad 1 both;
+
+          @media (prefers-reduced-motion) {
+            animation: none;
+          }
+        }
+      }
+    }
+
+    @keyframes flavour-backgrounds-intro-animation {
+      0% {
+        opacity: 0;
+        transform: translate(0, 80px);
+      }
+      
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    .flavour-labels > path {
+      @for $i from 0 through 5 {
+        &:nth-child(#{$i + 1}) {
+          animation: flavour-label-intro-animation 0.15s #{$start-delay + 0.1 + $i * 0.1}s $easeOutQuad 1 both;
+
+          @media (prefers-reduced-motion) {
+            animation: none;
+          }
+        }
+      }
+    }
+
+    @keyframes flavour-label-intro-animation {
+      0% {
+        opacity: 0;
+        transform: translate(0, 40px) scale(0.7);
+      }
+      
+      100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+      }
+    }
+
+    .peri-ometer-label {
+      animation: peri-ometer-label-intro-animation 0.4s ($start-delay + 0.5s) $easeOutQuad 1 both;
+
+      @media (prefers-reduced-motion) {
+        animation: none;
+      }
+    }
+
+    @keyframes peri-ometer-label-intro-animation {
+      0% {
+        opacity: 0;
+        transform: translate(0, 20px);
+      }
+      
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+  }
+}
+
+.peri-ometer-bg-transition {
+  &-enter-active, &-leave-active {
+    transition: clip-path 0.3s $easeOutSine, -webkit-clip-path 0.3s $easeOutSine;
+    will-change: clip-path;
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+    }
+  }
+
+  &-enter {
+    clip-path: circle(0%);
+    -webkit-clip-path: circle(0%); // safari needs vendor prefix
+  }
+
+  &-enter-to {
+    clip-path: circle(100%);
+    -webkit-clip-path: circle(100%); // safari needs vendor prefix
+  }
+}
+
+
+
+/**
+ * Some versions of IE11 and Edge don't support CSS transforms on SVG elements, so just show/hide the
+ * selected-flavour-indicators with opacity.
+ */
+// Starting state for selected-flavour-indicators and half-and-half-selected-flavour-indicators shapes
+@supports (-ms-ime-align: auto) {
+  .selected-flavour-indicators > polygon,
+  .half-and-half-selected-flavour-indicators > polygon {
+    opacity: 0; // hidden until active
+  }
+
+  .peri-ometer--f1-xtra-hot {
+    .selected-flavour-indicators .xtra-hot { opacity: 1; }
+  }
+  .peri-ometer--f1-hot {
+    .selected-flavour-indicators .hot { opacity: 1; }
+  }
+  .peri-ometer--f1-mild {
+    .selected-flavour-indicators .mild { opacity: 1; }
+  }
+  .peri-ometer--f1-mozam-paprika {
+    .selected-flavour-indicators .mozam-paprika { opacity: 1; }
+  }
+  .peri-ometer--f1-lemon-and-herb {
+    .selected-flavour-indicators .lemon-and-herb { opacity: 1; }
+  }
+  .peri-ometer--f1-tangy-tomato {
+    .selected-flavour-indicators .tangy-tomato { opacity: 1; }
+  }
+  .peri-ometer--f1-plain-ish {
+    .selected-flavour-indicators .plain-ish { opacity: 1; }
+  }
+
+  // half & half / second flavour selected states
+  .peri-ometer--f2-xtra-hot {
+    .half-and-half-selected-flavour-indicators .xtra-hot { opacity: 1; }
+  }
+  .peri-ometer--f2-hot {
+    .half-and-half-selected-flavour-indicators .hot { opacity: 1; }
+  }
+  .peri-ometer--f2-mild {
+    .half-and-half-selected-flavour-indicators .mild { opacity: 1; }
+  }
+  .peri-ometer--f2-mozam-paprika {
+    .half-and-half-selected-flavour-indicators .mozam-paprika { opacity: 1; }
+  }
+  .peri-ometer--f2-lemon-and-herb {
+    .half-and-half-selected-flavour-indicators .lemon-and-herb { opacity: 1; }
+  }
+  .peri-ometer--f2-tangy-tomato {
+    .half-and-half-selected-flavour-indicators .tangy-tomato { opacity: 1; }
+  }
+  .peri-ometer--f2-plain-ish {
+    .half-and-half-selected-flavour-indicators .plain-ish { opacity: 1; }
+  }
+}

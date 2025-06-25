@@ -1,0 +1,17 @@
+.product-upseller {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  transition: transform $primary-transition;
+
+  .upsell__heading {
+    @media (max-width: $screen-sm-max) {
+      padding-left: 12%;
+      padding-right: 12%;
+    }
+  }
+
+  .carousel {
+    &__breadcrumbs .btn { color: white; }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "nandos-ordering",
+  "version": "18.1.4",
+  "description": "Nandos ordering components",
+  "author": "brad426@gmail.com",
+  "private": true,
+  "module": "src/index.js",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/geolocation": "^4.0.1",
+    "nandos-a-b-testing": "^18.0.0",
+    "nandos-core-ui": "^18.0.0",
+    "nandos-dev-logger": "^18.0.0",
+    "nandos-i18n": "^18.0.0",
+    "nandos-middleware-api": "^18.0.0",
+    "nandos-timing-utils": "^18.0.0"
+  }
+}
